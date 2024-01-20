@@ -1,0 +1,27 @@
+html {
+    overflow-x: inherit;
+    overflow-y: inherit;
+}
+
+.tela-principal {
+    margin: auto;
+    background-color: #fff;
+    color: #000;
+    width: 91%;
+    height: 99%;
+    overflow-x: visible;
+    /*border: 1px solid black;*/
+}
+
+@media (min-width: 875px) and (min-height: 660px) {
+
+    html {
+        margin-right: 0;
+    }
+
+    .tela-principal {
+        width: 90%;
+        margin-left: 5.5%;
+        margin-right: 5.5%;
+    }
+}

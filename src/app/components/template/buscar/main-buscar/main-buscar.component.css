@@ -1,0 +1,138 @@
+.tela-pedido::-webkit-scrollbar {
+    display: none;
+}
+
+.container-main-buscar-mobile {
+    text-align: -webkit-center;
+}
+
+.container-main-buscar-desktop {
+    display: none;
+}
+
+.container-main-buscar-mobile-figuras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.container-main-buscar-mobile-figuras img {
+    border-radius: 3px;
+    width: 50%;
+    max-width: 220px;
+}
+
+img#buscar-mercados {
+    filter: brightness(0.45);
+}
+
+.container-main-buscar-mobile-mercados {
+    border-radius: 3px;
+    width: 100%;
+    max-width: 220px;
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.container-main-buscar-mobile-mercados img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-main-buscar-mobile-mercados div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 100;
+    font-size: 5vw;
+    font-weight: 600;
+    padding-top: 1px;
+}
+
+.container-main-buscar-mobile-select-menu {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+}
+
+.select-buscar-mobile {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 38px;
+    max-width: 450px;
+    text-align: left;
+    border: 1px solid #D9D9D9;
+    color: #828282;
+    background-color: #fff;
+}
+
+.principal-mobile-campo-buscar {
+    border: 1px solid #D9D9D9;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    max-width: 450px;
+    background-color: #fff;
+}
+
+.principal-mobile-buscar {
+    width: 100%;
+    height: 38px;
+    max-width: 97%;
+    text-align: left;
+    border: none;
+    color: #828282;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-top: 4px;
+    padding-left: 25px;
+    margin-left: 5px;
+}
+
+.botao-buscar-mobile {
+    background-color: #A90303;
+    color: #fff !important;
+    border: none;
+    width: 100%;
+    max-width: 450px;
+    height: 38px;
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 100px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+input:not(:placeholder-shown) {
+    color: #000;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+@media (min-width: 875px) {
+    .container-main-buscar-mobile {
+        display: none;
+    }
+
+    .container-main-buscar-desktop {
+        display: block;
+    }
+}
+
+@media (min-width: 500px) {
+    .container-main-buscar-mobile-mercados div {
+        font-size: 25px;
+    }
+}

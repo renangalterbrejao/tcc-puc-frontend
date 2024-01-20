@@ -1,0 +1,70 @@
+html {
+    align-items: flex-start;
+}
+
+.tela-pedido-aceito {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 91%;
+    /* height: 95.5%; */
+    margin: auto;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+
+.container-pedido-aceito-aviso-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+    width: 100%;
+}
+
+.container-pedido-aceito-aviso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.container-pedido-aceito-aviso div {
+    text-align: center;
+}
+
+.container-pedido-aceito-int {
+    position: absolute;
+    font-size: 40px;
+    padding-left: 15px;
+}
+
+.container-pedido-aceito-inf {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.botao-main-rodape {
+    margin-bottom: 100px;
+}
+
+.area-botao {
+    width: 90%;
+}
+
+.botao-ver-detalhes-mobile {
+    background-color: #A90303;
+    color: #fff !important;
+    border: none;
+    width: 100%;
+    max-width: 450px;
+    height: 38px;
+    border-radius: 30px;
+    margin-top: 25px;
+    font-size: 13px;
+    font-weight: 400;
+}

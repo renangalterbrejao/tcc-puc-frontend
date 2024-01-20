@@ -1,0 +1,20 @@
+<header>
+    <div id="container-header-principal-desktop" class="container-header-principal-desktop">
+        <img src="assets/img/easy_food_vermelho_logo.svg">
+    </div>
+
+    <div id="container-header-principal-mobile" class="container-header-principal-mobile">
+        <h1>Olá, {{usuarioNome}}</h1>
+        <div class="header-principal-menu-linha">
+            <ul>
+                <li id="menu-inicio" class="header-principal-menu-selecionado" (click)="selecionarMenu('menu-inicio');">
+                    Início
+                </li>
+                <li id="menu-restaurantes" (click)="selecionarMenu('menu-restaurantes');">Restaurantes</li>
+                <li id="menu-mercados" (click)="selecionarMenu('menu-mercados');">Mercados</li>
+                <li id="menu-bebidas" (click)="selecionarMenu('menu-bebidas');">Bebidas</li>
+            </ul>
+        </div>
+    </div>
+
+</header>

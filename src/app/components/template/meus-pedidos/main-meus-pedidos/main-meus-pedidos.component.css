@@ -1,0 +1,114 @@
+.container-main-meus-pedidos-mobile {
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+.container-main-meus-pedidos-desktop {
+    display: none;
+}
+
+.container-main-meus-pedidos-mobile-select-menu {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+    max-width: 450px;
+}
+
+.select-principal-mobile-ordenacao {
+    width: 100%;
+    height: 38px;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid #D9D9D9;
+    color: #828282;
+    background-color: #fff;
+}
+
+.select-principal-mobile-ordenacao-subtitulo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.container-historico-pedidos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+}
+
+.container-historico-pedidos-linha {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 20px 0 24px 0;
+}
+
+.container-historico-pedidos-linha-img img {
+    width: 80px;
+    height: 71px;
+}
+
+.container-historico-pedidos-linha-descricao {
+    padding-left: 15px;
+    text-align: left;
+    padding-top: 4px;
+}
+
+.container-historico-pedidos-linha-descricao-fornecedor img {
+    margin-left: 5px;
+}
+
+.container-historico-pedidos-linha-descricao-fornecedor {
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container-historico-pedidos-linha-descricao div {
+    margin-bottom: 3px;
+}
+
+.container-principal-mobile-linha-horizontal {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    max-width: 600px;
+}
+
+.botao-voltar-mobile {
+    background-color: #A90303;
+    color: #fff !important;
+    border: none;
+    width: 100%;
+    max-width: 450px;
+    height: 38px;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.btn-meusPedidos-mobile {
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+@media (min-width: 875px) {
+    .container-main-meus-pedidos-mobile {
+        display: none;
+    }
+
+    .container-main-meus-pedidos-desktop {
+        display: block;
+    }
+}

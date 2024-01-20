@@ -1,0 +1,61 @@
+<main>
+    <section id="container-main-meus-pedidos-mobile" class="container-main-meus-pedidos-mobile">
+        <div class="container-main-meus-pedidos-mobile-select-menu">
+
+            <select id="selectPrincipalMobileOrdenacao" name="select-principal-mobile-ordenacao"
+                class="select-principal-mobile-ordenacao" (change)="ordenaEstabelecimentos()">
+                <option value="Ordenar" default>Ordenar</option>
+                <option value="Data">Data</option>
+                <option value="Valor">Valor</option>
+            </select>
+
+            <div class="select-principal-mobile-ordenacao-subtitulo">
+                Histórico
+            </div>
+
+            <ng-container *ngFor="let pedido of meusPedidosConsulta">
+                <div class="container-historico-pedidos">
+                    <div class="container-historico-pedidos-linha" (click)="detalharPedido(pedido)">
+                        <div class="container-historico-pedidos-linha-img">
+                            <img src="{{pedido.estabelecimentoImagem}}">
+                        </div>
+                        <div class="container-historico-pedidos-linha-descricao">
+                            <div class="container-historico-pedidos-linha-descricao-fornecedor">
+                                {{pedido.estabelecimentoCategoria}} {{pedido.estabelecimentoNome}}
+                                <ng-container *ngIf="pedido.estabelecimentoNotaSatisfacao == '1'">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                    <img src="assets/img/estrela.svg">
+                                    <img src="assets/img/estrela.svg">
+                                </ng-container>
+                                <ng-container *ngIf="pedido.estabelecimentoNotaSatisfacao == '2'">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                    <img src="assets/img/estrela.svg">
+                                </ng-container>
+                                <ng-container *ngIf="pedido.estabelecimentoNotaSatisfacao == '3'">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                    <img src="assets/img/estrela_dourada.svg">
+                                </ng-container>
+                            </div>
+                            <div>{{pedido.dataHorarioConfirmacao}}</div>
+                            <div>Valor pago: {{pedido.precoFinal | currency : 'BRL'}}</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-principal-mobile-linha-horizontal"></div>
+
+            </ng-container>
+
+            <a routerLink="/principal" id="btnmeus-pedidosMobile" class="btn-meusPedidos-mobile">
+                <input class="botao-voltar-mobile" type="button" value="VOLTAR" />
+            </a>
+
+        </div>
+    </section>
+    <div id="container-main-meus-pedidos-desktop" class="container-main-meus-pedidos-desktop">
+        Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+    </div>
+</main>

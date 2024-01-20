@@ -1,0 +1,39 @@
+html {
+    align-items: flex-start;
+}
+
+.tela-aguardar {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 91%;
+    /* height: 95.5%; */
+    margin: auto;
+    height: 100%;
+    /*border: 1px solid black;*/
+}
+
+.container-aguardar-aviso-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 20px 0;
+    width: 100%;
+}
+
+.container-aguardar-aviso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.container-aguardar-aviso-tempo {
+    position: absolute;
+    font-size: 40px;
+    color: #D30010;
+}

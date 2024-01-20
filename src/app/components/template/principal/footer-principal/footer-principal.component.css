@@ -1,0 +1,35 @@
+.container-footer-principal-mobile {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid #D9D9D9;
+    background-color: #fff;
+}
+
+.container-footer-principal-mobile a {
+    width: 25%;
+    height: 100%;
+}
+
+.container-footer-principal-mobile div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-footer-principal-mobile img {
+    width: 25px;
+    height: 30px;
+}
+
+@media (min-width: 875px) {
+    .container-footer-principal-mobile {
+        display: none;
+    }
+}

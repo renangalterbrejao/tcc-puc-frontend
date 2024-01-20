@@ -1,0 +1,67 @@
+<body class="tela-login">
+    <header class="container-fluid container-login-header">
+        <img src="assets/img/easy_food_vermelho_logo.svg">
+    </header>
+
+    <main class="container-fluid container-login-principal">
+        <div id="container-login-mulher-desktop" class="container-login-mulher-desktop">
+            <img src="assets/img/mulher_login_desktop.png">
+        </div>
+        <div id="container-login-senha" class="container-login-senha">
+            <div class="subtitulo">
+                Falta pouco para fazer seu pedido!
+            </div>
+            <div class="login-senha">
+                <div class="login-mobile-campo-email">
+                    <input type="email" size="36" maxlength="40" id="login-mobile-email" name="login-mobile-email"
+                        placeholder="Email" class="login-mobile-email" value=""
+                        style="background-image: url(assets/img/email-login.svg);" required [formControl]="email">
+                </div>
+                <div class="login-mobile-campo-email">
+                    <input type="password" size="36" maxlength="30" id="login-mobile-senha" name="login-mobile-senha"
+                        placeholder="Senha" class="login-mobile-email" value="{{senha}}" [(ngModel)]="senha"
+                        style="background-image: url(assets/img/cadeado-login.svg);" required>
+                    <div (click)="escondeMostraSenha();">
+                        <img src="assets/img/mostra-senha-login.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="esqueci-senha">
+                <span>Esqueci senha</span>
+                <span (click)="limpaCampos();">Limpar campos</span>
+            </div>
+            <div class="area-botoes">
+                <input class="botao-entrar" type="button" value="Entrar" (click)="logar()" />
+                <input class="botao-voltar" type="button" value="Voltar" routerLink="/" />
+            </div>
+
+            <app-modal-simples idModal="modalAtencao" titulo="Atenção!"
+                corpo="Por favor, digite um login e senha válidos!">
+            </app-modal-simples>
+
+            <app-modal-simples idModal="modalAtencaoLoginErro" titulo="Atenção!"
+                corpo="Login não encontrado ou senha incorreta!">
+            </app-modal-simples>
+
+            <app-modal-simples idModal="modalAtencaoLoginErroConexao" titulo="Atenção!"
+                corpo="Erro na conexão com os dados!">
+            </app-modal-simples>
+        </div>
+
+    </main>
+
+    <footer class="container-fluid container-rodape" id="container-rodape">
+        <div class="termos-redes-sociais">
+            <h1>Termos e condições de uso &nbsp;&nbsp;&nbsp;|</h1>
+            <h1>Privacidade &nbsp;&nbsp;&nbsp;|</h1>
+            <h1>Segurança &nbsp;&nbsp;&nbsp;|</h1>
+            <h1>Redes sociais &nbsp;&nbsp;&nbsp;</h1>
+            <img src="assets/img/redes_sociais.png">
+        </div>
+        <div class="copyright">
+            <h1>Copyright 2023 - Easy Food - Todos os direitos reservados. Easy Food com Agência de restaurantes Online
+                S.A.</h1>
+        </div>
+    </footer>
+
+</body>

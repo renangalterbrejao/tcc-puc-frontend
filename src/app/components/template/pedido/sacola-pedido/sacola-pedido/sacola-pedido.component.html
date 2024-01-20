@@ -1,0 +1,118 @@
+<body class="tela-sacola">
+    <app-header-pedido></app-header-pedido>
+    <main>
+        <section id="container-main-sacola-mobile" class="container-main-sacola-mobile">
+            <div class="container-main-sacola-mobile-select-menu">
+
+                <div class="container-principal-mobile-itens" *ngFor="let cozinha of cozinhas">
+                    <ng-container *ngIf="cozinha.item.cozinha != undefined">
+                        <h3>Cozinha {{cozinha.item.cozinha.categoriaCozinha}}</h3>
+                        <div class="principal-mobile-item">
+                            <div class="principal-mobile-item-card-descricao">
+                                <h3>{{cozinha.item.nome}}</h3>
+                                <p>{{cozinha.item.descricao}}</p>
+                                <p class="principal-mobile-item-card-preco">Total: {{cozinha.precoFinal | currency :
+                                    'BRL'}}
+                                </p>
+                                <div class="container-sacola-mobile-quantidade">
+                                    <h4>Quantidade:</h4>
+                                    <div>
+                                        {{cozinha.qtdItem}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="principal-mobile-item-card-img">
+                                <img src="{{cozinha.item.imagem}}">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="container-principal-mobile-itens" *ngIf="bebidas.length > 0">
+                    <h3>Bebidas</h3>
+                    <div class="principal-mobile-item" *ngFor="let bebida of bebidas">
+                        <ng-container *ngIf="bebida.item.produto != undefined">
+                            <div class="principal-mobile-item-card-descricao">
+                                <h3>{{bebida.item.nome}}</h3>
+                                <p>{{bebida.item.produto.tipoEmbalagem}}
+                                    {{bebida.item.produto.quantidadeMedida}}
+                                    {{bebida.item.produto.tipoMedida}}</p>
+                                <p class="principal-mobile-item-card-preco">Total: {{bebida.precoFinal | currency :
+                                    'BRL'}}</p>
+                                <div class="container-sacola-mobile-quantidade">
+                                    <h4>Quantidade:</h4>
+                                    <div>
+                                        {{bebida.qtdItem}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="principal-mobile-item-card-img">
+                                <img src="{{bebida.item.imagem}}">
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="container-principal-mobile-itens" *ngIf="petiscos.length > 0">
+                    <h3>Petiscos</h3>
+                    <div class="principal-mobile-item" *ngFor="let petisco of petiscos">
+                        <ng-container *ngIf="petisco.item.produto != undefined">
+                            <div class="principal-mobile-item-card-descricao">
+                                <h3>{{petisco.item.nome}}</h3>
+                                <p>{{petisco.item.produto.tipoEmbalagem}}
+                                    {{petisco.item.produto.quantidadeMedida}}
+                                    {{petisco.item.produto.tipoMedida}}</p>
+                                <p class="principal-mobile-item-card-preco">Total: {{petisco.precoFinal | currency :
+                                    'BRL'}}</p>
+                                <div class="container-sacola-mobile-quantidade">
+                                    <h4>Quantidade:</h4>
+                                    <div>
+                                        {{petisco.qtdItem}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="principal-mobile-item-card-img">
+                                <img src="{{petisco.item.imagem}}">
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="pagamentoSomenteLeitura == true">
+                    <input class="botao-continuar-mobile" type="button" value="VOLTAR" (click)="continuarPagamento()"
+                        style="margin-bottom: 100px;" />
+                </ng-container>
+
+                <ng-container *ngIf="pagamentoSomenteLeitura == false">
+
+                    <input class="botao-continuar-mobile" type="button" value="CONTINUAR"
+                        (click)="continuarPagamento()" />
+
+                    <input class="botao-limpar-sacola-mobile" type="button" value="LIMPAR SACOLA"
+                        (click)="limpaSacola()" />
+
+                    <div class="botao-main-incluir-mais-items">
+                        <div>
+                            <a routerLink="/pedido">
+                                <img src="assets/img/incluir_mais_items.svg">
+                            </a>
+                        </div>
+                        <h4>Incluir mais itens</h4>
+                    </div>
+                </ng-container>
+
+                <app-modal-simples idModal="modalAtencaoErroValorMinimo" titulo="Atenção!" corpo="O valor total dos produtos 
+                         escolhidos é menor que o valor mínimo de frete deste estabelecimento ({{estabelecimentoEscolhido.taxaMinimaFrete | currency :
+                        'BRL'}}).
+                         Por favor, inclua mais produtos deste estabelecimento na sacola! ">
+                </app-modal-simples>
+
+            </div>
+        </section>
+        <div id="container-main-sacola-desktop" class="container-main-sacola-desktop">
+            Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+        </div>
+    </main>
+    <app-footer-principal></app-footer-principal>
+
+</body>

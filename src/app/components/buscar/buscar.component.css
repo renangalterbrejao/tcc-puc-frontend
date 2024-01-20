@@ -1,0 +1,23 @@
+.tela-buscar {
+    margin: auto;
+    background-color: #fff;
+    color: #000;
+    width: 91%;
+    height: 99%;
+    /*border: 1px solid black;*/
+    overflow-x: visible;
+}
+
+@media (min-width: 875px) and (min-height: 660px) {
+
+    html {
+        margin-right: 0;
+    }
+
+    .tela-buscar {
+        width: 90%;
+        margin-left: 5.5%;
+        margin-right: 5.5%;
+    }
+
+}

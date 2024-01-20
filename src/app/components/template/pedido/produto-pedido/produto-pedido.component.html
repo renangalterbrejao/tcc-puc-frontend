@@ -1,0 +1,63 @@
+<body class="tela-produto">
+    <app-header-pedido></app-header-pedido>
+    <main>
+        <section id="container-main-produto-mobile" class="container-main-produto-mobile">
+            <ng-container *ngIf="itemEscolhido != undefined">
+                <div class="container-main-produto-mobile-select-menu">
+                    <div class="container-main-produto-mobile-descricao">
+                        <img src="{{itemEscolhido.imagem}}">
+                        <ng-container *ngIf="itemEscolhido.produto != undefined">
+                            <h3>{{itemEscolhido.preco | currency : 'BRL'}}</h3>
+                            <h3>{{itemEscolhido.nome}}</h3>
+                            <p>{{itemEscolhido.produto.tipoEmbalagem}}
+                                {{itemEscolhido.produto.quantidadeMedida}}
+                                {{itemEscolhido.produto.tipoMedida}}</p>
+                        </ng-container>
+                        <ng-container *ngIf="itemEscolhido.cozinha != undefined">
+                            <h3>{{itemEscolhido.preco | currency : 'BRL'}}</h3>
+                            <h3>{{itemEscolhido.nome}}</h3>
+                            <p>{{itemEscolhido.descricao}}</p>
+                        </ng-container>
+                    </div>
+                    <div class="container-produto-mobile-quantidade">
+                        <h4>Quantidade:</h4>
+                        <div>
+                            <img src="assets/img/menos_quantidade.svg" (click)="subtraiQuantidade(itemEscolhido)"
+                                style="padding-bottom: 1.8px;">
+                            <h4 style="margin: 0;">{{quantidadeProduto}}</h4>
+                            <img src="assets/img/mais_quantidade.svg" (click)="adicionaQuantidade(itemEscolhido)">
+                        </div>
+                        <ng-container *ngIf="itemEscolhido.cozinha != undefined">
+                            <div class="container-produto-mobile-observacao">
+                                <textarea placeholder="Observação" maxlength="150"></textarea>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div class="botao-main-ver-itens-sacola">
+                        <a (click)="verItensSacola()" class="botao-main-rodape" id="btnSacolaMobile"
+                            style="width: 100%;">
+                            <input class="botao-sacola-mobile" type="button" value="VER ITENS DA SACOLA" />
+                        </a>
+                    </div>
+                    <div class="botao-main-incluir-mais-items">
+                        <div>
+                            <a routerLink="/pedido">
+                                <img src="assets/img/incluir_mais_items.svg">
+                            </a>
+                        </div>
+                        <h4>Incluir mais itens</h4>
+                    </div>
+                </div>
+            </ng-container>
+
+            <app-modal-simples idModal="modalErroSemItens" titulo="Atenção!"
+                corpo="Não há itens na sacola. Por favor, selecione ao menos um item para realizar uma compra!">
+            </app-modal-simples>
+
+        </section>
+        <div id="container-main-produto-desktop" class="container-main-produto-desktop">
+            Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+        </div>
+    </main>
+    <app-footer-principal></app-footer-principal>
+</body>

@@ -1,0 +1,96 @@
+<main>
+    <div id="container-main-principal-mobile" class="container-main-principal-mobile">
+        <div class="container-main-principal-mobile-figuras-menu">
+            <img id="mobile-menu-restaurantes" src="assets/img/lanchonetes.svg"
+                (click)="selecionarMenu('menu-restaurantes');">
+            <img id="mobile-menu-mercados" src="assets/img/mercados.svg" (click)="selecionarMenu('menu-mercados');">
+            <img id="mobile-menu-bebidas" src="assets/img/bebidas.svg" (click)="selecionarMenu('menu-bebidas');">
+        </div>
+        <div class="container-main-principal-mobile-select-menu">
+            <div class="principal-mobile-campo-buscar">
+                <input id="principalMobileBuscar" type="text" size="25" maxlength="25" name="principal-mobile-buscar"
+                    placeholder="Buscar" class="principal-mobile-buscar"
+                    style="border: none; background-image: url('assets/img/buscar.svg');"
+                    (keyup)="pesquisaEstabelecimentos();" (blur)="pesquisaEstabelecimentos();">
+                <a routerLink="/buscar">
+                    <img src="assets/img/menu_hamburguer_input.svg" />
+                </a>
+            </div>
+
+            <select id="selectPrincipalMobileOrdenacao" name="select-principal-mobile-ordenacao"
+                class="select-principal-mobile-ordenacao" (change)="ordenaEstabelecimentos()">
+                <option value="ordenar" default>Ordenar</option>
+                <option value="alfabetica">Ordem alfabética</option>
+                <option value="satisfacao">Nível de satisfação</option>
+            </select>
+
+            <div id="container-main-principal-mobile-restaurantes"
+                class="container-main-principal-mobile-estabelecimentos">
+                <h1 (click)="esconderMostrarGrupo('grupo-restaurantes');">Restaurantes</h1>
+                <img id="grupo-restaurantes-img" src="assets/img/btn_fechar_dados.svg"
+                    (click)="esconderMostrarGrupo('grupo-restaurantes');">
+                <div id="grupo-restaurantes" style="display: flex;">
+                    <ng-container *ngFor="let restaurante of restaurantesConsulta">
+                        <div (click)="navegarParaPedido(restaurante)"
+                            class="container-main-principal-mobile-estabelecimento">
+                            <p>{{restaurante.categoria}} {{restaurante.nome}}</p>
+                            <ng-container *ngIf="restaurante.notaSatisfacao == '1'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela.svg">
+                                <img src="assets/img/estrela.svg">
+                            </ng-container>
+                            <ng-container *ngIf="restaurante.notaSatisfacao == '2'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela.svg">
+                            </ng-container>
+                            <ng-container *ngIf="restaurante.notaSatisfacao == '3'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+            <div id="container-main-principal-mobile-mercados" class="container-main-principal-mobile-estabelecimentos"
+                style="margin-bottom: 30px;">
+                <h1 (click)="esconderMostrarGrupo('grupo-mercados');">Mercados</h1>
+                <img id="grupo-mercados-img" src="assets/img/btn_fechar_dados.svg"
+                    (click)="esconderMostrarGrupo('grupo-mercados');">
+                <div id="grupo-mercados" style="display: flex;">
+                    <ng-container *ngFor="let mercado of mercadosConsulta">
+                        <div (click)="navegarParaPedido(mercado)"
+                            class="container-main-principal-mobile-estabelecimento">
+                            <p>{{mercado.nome}}</p>
+                            <ng-container *ngIf="mercado.notaSatisfacao == '1'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela.svg">
+                                <img src="assets/img/estrela.svg">
+                            </ng-container>
+                            <ng-container *ngIf="mercado.notaSatisfacao == '2'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela.svg">
+                            </ng-container>
+                            <ng-container *ngIf="mercado.notaSatisfacao == '3'">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                                <img src="assets/img/estrela_dourada.svg">
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <app-modal-simples idModal="modalErroEstabelecimentos" titulo="Atenção!"
+            corpo="Houve um erro ao ler o endpoint de estabelecimentos!">
+        </app-modal-simples>
+
+    </div>
+    <div id="container-main-principal-desktop" class="container-main-principal-desktop">
+        Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+    </div>
+</main>

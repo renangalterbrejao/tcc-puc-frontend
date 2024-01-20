@@ -1,0 +1,268 @@
+html {
+    align-items: flex-start;
+}
+
+.tela-login {
+    background-color: #fff;
+    color: #000;
+    width: 94%;
+    max-width: 2000px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: column;
+    margin: auto;
+    padding-top: 50px;
+    /* border: 1px solid black;*/
+}
+
+.tela-login img {
+    width: 250px;
+    margin-left: calc(50% - 250px/2 - 0.5px);
+    margin-bottom: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-login-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: row;
+}
+
+.container-login-senha {
+    width: 100%;
+    /*border: 1px solid black;*/
+    margin-bottom: 0;
+}
+
+.login-senha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.subtitulo {
+    display: none;
+}
+
+.login-senha input {
+    width: 100%;
+    height: 38px;
+}
+
+.login-mobile-campo-email {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    max-width: 450px;
+}
+
+.login-mobile-email {
+    max-width: 97%;
+    text-align: left;
+    border: none;
+    color: #828282;
+    background-repeat: no-repeat;
+    background-position: left bottom 5px;
+    padding-top: 7px;
+    padding-left: 25px;
+    margin-left: 5px;
+}
+
+input#login-mobile-senha {
+    background-position: left 4.5px bottom 11px;
+}
+
+.login-mobile-campo-email div {
+    width: 25px;
+    height: 38px;
+    /*text-align: -webkit-right;*/
+    text-align: -moz-right;
+    text-align: -webkit-right;
+}
+
+.login-mobile-campo-email img {
+    width: 22px;
+    height: 13px;
+    min-width: 22px;
+    max-width: 22px;
+    margin-top: 14.5px;
+    padding-right: 6px;
+}
+
+input:not(:placeholder-shown) {
+    color: #000;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+.esqueci-senha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.esqueci-senha span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+}
+
+.area-botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 30px;
+}
+
+.area-botoes input {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 38px;
+    border-radius: 30px;
+}
+
+.botao-entrar {
+    background-color: #A90303;
+    color: #FFF !important;
+    border: none;
+}
+
+.botao-voltar {
+    background-color: #fff;
+    color: #000 !important;
+    border: 1px solid #D9D9D9;
+    width: 100% !important;
+    height: 38px !important;
+}
+
+.container-rodape {
+    display: none;
+    height: 0;
+}
+
+.termos-redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+.termos-redes-sociais img {
+    width: 117px;
+    height: 27px;
+    margin-bottom: 10px;
+}
+
+.container-rodape h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    color: #fff;
+    margin-right: 15px;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyright h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/*Desktop*/
+
+.container-login-mulher-desktop {
+    display: none;
+}
+
+.container-login-mulher-desktop img {
+    width: 392px;
+    height: 435px;
+}
+
+@media (min-width: 350px) {
+    .container-login-senha {
+        width: 330px;
+    }
+}
+
+@media (min-width: 875px) and (min-height: 660px) {
+
+    .container-login-header {
+        width: 90%;
+        margin-top: 25px;
+    }
+
+    .container-login-principal {
+        width: 90%;
+        height: 450px;
+    }
+
+    .container-login-mulher-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tela-login {
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+    }
+
+    .tela-login img {
+        margin-left: 0;
+    }
+
+    .subtitulo {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-style: normal;
+        margin-bottom: 50px;
+    }
+
+    .container-login-senha {
+        margin-bottom: 50px;
+    }
+
+    .container-rodape {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        width: 100%;
+        height: calc(100% - 595px);
+        min-height: 70px;
+        max-height: 300px;
+        background-color: #D30010;
+        /*border: 1px solid black;*/
+        ;
+    }
+}

@@ -1,0 +1,276 @@
+.container-main-pedido-mobile {
+    text-align: -webkit-center;
+    text-align: -moz-center;
+}
+
+.container-main-pedido-desktop {
+    display: none;
+}
+
+.container-main-pedido-mobile-figuras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.container-main-pedido-mobile-figuras img {
+    border-radius: 3px;
+    width: 50%;
+    max-width: 220px;
+}
+
+img#buscar-mercados {
+    filter: brightness(0.45);
+}
+
+.container-main-pedido-mobile-mercados {
+    border-radius: 3px;
+    width: 100%;
+    max-width: 220px;
+    margin-right: 1%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.container-main-pedido-mobile-mercados img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-main-pedido-mobile-mercados div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 100;
+    font-size: 5vw;
+    font-weight: 600;
+    padding-top: 1px;
+}
+
+.container-main-pedido-mobile-select-menu {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+}
+
+.select-buscar-mobile {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 38px;
+    max-width: 450px;
+    text-align: left;
+    border: 1px solid #D9D9D9;
+    color: #828282;
+}
+
+.principal-mobile-campo-buscar {
+    border: 1px solid #D9D9D9;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    max-width: 450px;
+    background-color: #fff;
+}
+
+.principal-mobile-buscar {
+    width: 100%;
+    height: 38px;
+    max-width: 97%;
+    text-align: left;
+    border: none;
+    color: #828282;
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-top: 4px;
+    padding-left: 25px;
+    margin-left: 5px;
+}
+
+.container-principal-mobile-itens {
+    display: flex;
+    /*align-items: center;
+    justify-content: center;*/
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    /* max-width: 450px; */
+}
+
+.container-principal-mobile-itens h3 {
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.principal-mobile-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.principal-mobile-item::-webkit-scrollbar {
+    display: none;
+}
+
+.principal-mobile-item p {
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+    margin-top: -10px;
+}
+
+.principal-mobile-item-card {
+    width: 100%;
+    height: 180px;
+    max-height: 180px;
+    min-width: 100px;
+    margin-right: 5px;
+    text-align: left;
+    overflow-y: hidden;
+}
+
+.principal-mobile-item-card a {
+    display: block;
+    width: 100px;
+}
+
+.principal-mobile-item-card img {
+    width: 100px;
+}
+
+.principal-mobile-item-card-descricao {
+    width: 100px;
+    margin-top: -8px;
+}
+
+.principal-mobile-item-card-descricao h3 {
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.botao-sacola-mobile {
+    background-color: #A90303;
+    color: #fff !important;
+    border: none;
+    width: 100%;
+    max-width: 450px;
+    height: 38px;
+    border-radius: 30px;
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.container-principal-mobile-linha-horizontal {
+    width: 100%;
+    border: 1px solid #D9D9D9;
+    max-width: 600px;
+}
+
+.container-principal-mobile-itens-cozinhas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    max-width: 600px;
+}
+
+.container-principal-mobile-itens-cozinhas h3 {
+    text-align: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.principal-mobile-item-cozinhas {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.principal-mobile-item-card-descricao-cozinhas {
+    width: 100%;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.principal-mobile-item-card-descricao-cozinhas p {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.principal-mobile-item-card-descricao-cozinhas h3 {
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0;
+}
+
+.principal-mobile-item-card-preco-cozinhas {
+    font-weight: 600 !important;
+    font-size: 15px;
+}
+
+.principal-mobile-item-card-img-cozinhas {
+    display: flex;
+    align-items: center;
+}
+
+.principal-mobile-item-card-img-cozinhas img {
+    width: 96px;
+    height: 85px;
+}
+
+.botao-main-rodape {
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+input:not(:placeholder-shown) {
+    color: #000;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+@media (min-width: 875px) {
+    .container-main-pedido-mobile {
+        display: none;
+    }
+
+    .container-footer-pedido-mobile {
+        display: none;
+    }
+
+    .container-main-pedido-desktop {
+        display: block;
+    }
+}
+
+@media (min-width: 500px) {
+
+    .container-main-pedido-mobile-mercados div {
+        font-size: 25px;
+    }
+}

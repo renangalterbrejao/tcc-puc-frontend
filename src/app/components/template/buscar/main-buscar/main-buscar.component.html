@@ -1,0 +1,55 @@
+<main>
+    <div id="container-main-buscar-mobile" class="container-main-buscar-mobile">
+        <div class="container-main-buscar-mobile-figuras">
+            <div id="buscarMobileMercados" class="container-main-buscar-mobile-mercados"
+                (click)="selecionar('mercados');">
+                <img id="buscar-mercados" src="assets/img/buscar_mercados.svg">
+                <div id="buscarMercadosText">Mercados</div>
+            </div>
+            <div id="buscarMobileRestaurantes" class="container-main-buscar-mobile-mercados"
+                (click)="selecionar('restaurantes');">
+                <img id="buscar-restaurantes" src="assets/img/buscar_restaurantes.svg">
+            </div>
+        </div>
+
+        <div class="container-main-buscar-mobile-select-menu">
+            <select id="categoriaEstabelecimentoBuscar" name="select-buscar-mobile" class="select-buscar-mobile">
+                <option value="vazio" default>Categoria</option>
+                <ng-container *ngFor="let estabelecimento of estabelecimentosCategorias">
+                    <option value="{{estabelecimento}}">{{estabelecimento}}</option>
+                </ng-container>
+            </select>
+
+            <select id="cozinhaBuscar" name="select-buscar-mobile" class="select-buscar-mobile">
+                <option value="vazio" default>Cozinha</option>
+                <ng-container *ngFor="let cozinha of cozinhas">
+                    <option value="{{cozinha.categoriaCozinha}}">{{cozinha.categoriaCozinha}}</option>
+                </ng-container>
+            </select>
+
+            <select id="produtoBuscar" name="select-buscar-mobile" class="select-buscar-mobile">
+                <option value="vazio" default>Tipo de Produto</option>
+                <ng-container *ngFor="let produto of produtos">
+                    <option value="{{produto.categoriaProduto}}">{{produto.categoriaProduto}}</option>
+                </ng-container>
+            </select>
+
+            <div class="principal-mobile-campo-buscar">
+                <input id="buscarText" type="search" size="25" maxlength="25" name="principal-mobile-buscar"
+                    placeholder="Buscar" class="principal-mobile-buscar"
+                    style="border: none; background-image: url('assets/img/buscar.svg'); background-color: #fff;">
+            </div>
+
+            <input class="botao-buscar-mobile" type="button" value="BUSCAR" (click)="buscarEstabelecimentos();" />
+
+        </div>
+
+        <app-modal-simples idModal="modalAtencaoBuscarErroConexao" titulo="Atenção!"
+            corpo="Houve um erro na conexão com os dados. Por favor, tente a busca novamente mais tarde!">
+        </app-modal-simples>
+
+    </div>
+    <div id="container-main-buscar-desktop" class="container-main-buscar-desktop">
+        Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+    </div>
+</main>

@@ -1,0 +1,129 @@
+<body class="tela-pagamento">
+    <app-header-pedido></app-header-pedido>
+    <main>
+        <section id="container-main-pagamento-mobile" class="container-main-pagamento-mobile">
+            <div class="container-main-pagamento-mobile-select-menu">
+
+                <div class="container-main-pagamento-mobile-informacoes">
+                    <h3 routerLink="/sacola">Ver itens do pedido</h3>
+                    <div>
+                        <h4>Resumo dos valores</h4>
+                        <h5>Subtotal:&nbsp;{{precoTotalSacola | currency : 'BRL'}}</h5>
+                        <h5>Desconto:&nbsp;{{descontoTotalSacola | currency : 'BRL'}}</h5>
+                        <h5>Taxa de entrega:&nbsp;{{estabelecimentoEscolhido.taxaMinimaFrete | currency : 'BRL'}}</h5>
+                        <h5>Total:&nbsp;{{precoFinal | currency : 'BRL'}}</h5>
+                        <h5 class="container-main-pagamento-mobile-informacoes-pula-linha">Tempo de
+                            entrega:&nbsp;90&nbsp;minutos</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Dados</h4>
+                        <h5>Nome:&nbsp;{{usuarioComprador.nome}}</h5>
+                        <h5 class="quebrar-informacao">Email:&nbsp;{{usuarioComprador.email}}</h5>
+                        <h5>Contato:&nbsp;{{usuarioComprador.contato}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Endereço da entrega</h4>
+                        <h5>{{usuarioComprador.logradouro}}, {{usuarioComprador.numero}}</h5>
+                        <h5>Cidade:&nbsp;{{usuarioComprador.cidade}}</h5>
+                        <h5>Estado:&nbsp;{{usuarioComprador.estado}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Dados do pagamento</h4>
+                        <h5>CPF: {{usuarioComprador.cpf}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <ng-container *ngIf="pagamentoSomenteLeitura == false">
+                        <div>
+                            <h4>Escolha um tipo de pagamento:</h4>
+                            <div class="container-main-pagamento-mobile-informacoes-tipo-pagamento">
+                                <input type="radio" id="radio_pagamento_pix" name="radio_tipo_pagamento"
+                                    value="pagamento_pix" checked (click)="escondeCartao()">
+                                <p><label for="radio_pagamento_pix">Pix</label></p>
+                                <input type="radio" id="radio_pagamento_cartao" name="radio_tipo_pagamento"
+                                    value="pagamento_cartao" (click)="escondeQrCode()">
+                                <p><label for="radio_pagamento_cartao">Cartão de crédito</label></p>
+                            </div>
+                            <div id="pagamentoQrCode" class="container-main-pagamento-mobile-informacoes-qrcode"
+                                style="display: flex;">
+                                <img src="assets/img/qrCode.svg">
+                            </div>
+                            <div id="pagamentoCartaoCredito" class="container-main-pagamento-mobile-informacoes-cartao"
+                                style="display: none;">
+                                <h5>Número: {{usuarioNumeroCartao}}</h5>
+                                <h5>Data de validade: {{usuarioDataValidadeCartao}}</h5>
+                                <h5>Código de segurança: {{usuarioComprador.codigoSegurancaCartao}}</h5>
+                                <h5>Bandeira: {{usuarioComprador.bandeiraCartao}}</h5>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="pagamentoSomenteLeitura == true">
+
+                        <ng-container *ngIf="tipoPagamentoRealizado == 'PIX'">
+                            <div>
+                                <h4>Pagamento realizado via Pix</h4>
+                            </div>
+                        </ng-container>
+
+                        <ng-container *ngIf="tipoPagamentoRealizado == 'CARTAO'">
+                            <div id="pagamentoCartaoCreditoEscolhido"
+                                class="container-main-pagamento-mobile-informacoes-cartao">
+                                <h4>Pagamento realizado via cartão de crédito</h4>
+                                <h5>Número: {{usuarioNumeroCartao}}</h5>
+                                <h5>Data de validade: {{usuarioDataValidadeCartao}}</h5>
+                                <h5>Código de segurança: {{usuarioComprador.codigoSegurancaCartao}}</h5>
+                                <h5>Bandeira: {{usuarioComprador.bandeiraCartao}}</h5>
+                            </div>
+                        </ng-container>
+
+                    </ng-container>
+
+                </div>
+
+                <ng-container *ngIf="pagamentoSomenteLeitura == false">
+
+                    <input id="botaoCopiarCodigoQrCode" (click)="mensagemCodigoCopiado()"
+                        class="botao-copiar-codigo-mobile" type="button" value="COPIAR CÓDIGO" />
+
+                    <a (click)="realizarPagamento()" id="btnpagamentoMobile" class="botao-main-rodape"
+                        style="width: 100%;">
+                        <input class="botao-realizar-pedido-mobile" type="button" value="REALIZAR PEDIDO" />
+                    </a>
+                </ng-container>
+
+                <ng-container *ngIf="pagamentoSomenteLeitura == true">
+
+                    <a routerLink="/principal" id="btnpagamentoMobile" class="botao-main-rodape">
+                        <input class="botao-realizar-pedido-mobile" type="button" value="OK" />
+                    </a>
+
+                </ng-container>
+
+                <app-modal-simples idModal="modalAtencaoCodigoCopiado" titulo="Atenção!"
+                    corpo="Código copiado com sucesso!">
+                </app-modal-simples>
+
+                <app-modal-simples idModal="modalAtencaoErroIncluirPedido" titulo="Atenção!"
+                    corpo="Houve um erro ao tentar incluir seu pedido. Tente novamente mais tarde!">
+                </app-modal-simples>
+
+            </div>
+        </section>
+        <div id="container-main-pagamento-desktop" class="container-main-pagamento-desktop">
+            Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+        </div>
+    </main>
+    <app-footer-principal></app-footer-principal>
+
+</body>

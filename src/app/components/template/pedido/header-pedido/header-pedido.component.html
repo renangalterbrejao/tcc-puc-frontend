@@ -1,0 +1,37 @@
+<header>
+    <section id="container-header-pedido-desktop" class="container-header-pedido-desktop">
+        <img src="assets/img/easy_food_vermelho_logo.svg">
+    </section>
+
+    <section id="container-header-pedido-mobile" class="container-header-pedido-mobile">
+        <ng-container *ngIf="pagamentoSomenteLeitura == false">
+            <a routerLink="{{ rotaAnterior }}">
+                <div class="container-header-pedido-mobile-seta">
+                    <img src="assets/img/seta_esquerda.svg">
+                </div>
+            </a>
+        </ng-container>
+
+        <ng-container *ngIf="estabelecimentoEscolhido != undefined">
+            <div class="container-header-pedido-mobile-titulo">
+                <h1>{{estabelecimentoEscolhido.categoria}} {{estabelecimentoEscolhido.nome}}</h1>
+                <ng-container *ngIf="estabelecimentoEscolhido.notaSatisfacao == '1'">
+                    <img src="assets/img/estrela_dourada.svg">
+                    <img src="assets/img/estrela.svg">
+                    <img src="assets/img/estrela.svg">
+                </ng-container>
+                <ng-container *ngIf="estabelecimentoEscolhido.notaSatisfacao == '2'">
+                    <img src="assets/img/estrela_dourada.svg">
+                    <img src="assets/img/estrela_dourada.svg">
+                    <img src="assets/img/estrela.svg">
+                </ng-container>
+                <ng-container *ngIf="estabelecimentoEscolhido.notaSatisfacao == '3'">
+                    <img src="assets/img/estrela_dourada.svg">
+                    <img src="assets/img/estrela_dourada.svg">
+                    <img src="assets/img/estrela_dourada.svg">
+                </ng-container>
+            </div>
+        </ng-container>
+
+    </section>
+</header>

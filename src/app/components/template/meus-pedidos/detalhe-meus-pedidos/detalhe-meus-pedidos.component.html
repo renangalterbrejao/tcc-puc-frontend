@@ -1,0 +1,80 @@
+<body class="tela-detalhe-meus-pedidos">
+    <app-header-meus-pedidos></app-header-meus-pedidos>
+
+    <main>
+        <section id="container-main-pagamento-mobile" class="container-main-pagamento-mobile">
+            <div class="container-main-pagamento-mobile-select-menu">
+
+                <div class="container-main-pagamento-mobile-informacoes">
+                    <h3 routerLink="/sacola">Ver itens do pedido</h3>
+                    <div>
+                        <h4>Resumo dos valores</h4>
+                        <h5>Subtotal:&nbsp;{{precoTotalSacola | currency : 'BRL'}}</h5>
+                        <h5>Desconto:&nbsp;{{descontoTotalSacola | currency : 'BRL'}}</h5>
+                        <h5>Taxa de entrega:&nbsp;{{estabelecimentoEscolhido.taxaMinimaFrete | currency : 'BRL'}}</h5>
+                        <h5>Total:&nbsp;{{precoFinal | currency : 'BRL'}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Dados</h4>
+                        <h5>Nome:&nbsp;{{usuarioComprador.nome}}</h5>
+                        <h5 class="quebrar-informacao">Email:&nbsp;{{usuarioComprador.email}}</h5>
+                        <h5>Contato:&nbsp;{{usuarioComprador.contato}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Endereço da entrega</h4>
+                        <h5>{{usuarioComprador.logradouro}}, {{usuarioComprador.numero}}</h5>
+                        <h5>Cidade:&nbsp;{{usuarioComprador.cidade}}</h5>
+                        <h5>Estado:&nbsp;{{usuarioComprador.estado}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <div>
+                        <h4>Dados do pagamento</h4>
+                        <h5>CPF: {{usuarioComprador.cpf}}</h5>
+                    </div>
+
+                    <div class="container-principal-mobile-linha-horizontal"></div>
+
+                    <ng-container *ngIf="tipoPagamentoRealizado === 'PIX'">
+                        <div>
+                            <h4>Pagamento realizado via Pix</h4>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="tipoPagamentoRealizado !== 'PIX'">
+                        <div id="pagamentoCartaoCreditoEscolhido"
+                            class="container-main-pagamento-mobile-informacoes-cartao">
+                            <h4>Pagamento realizado via cartão de crédito</h4>
+                            <h5>Número: {{usuarioNumeroCartao}}</h5>
+                            <h5>Data de validade: {{usuarioDataValidadeCartao}}</h5>
+                            <h5>Código de segurança: {{usuarioComprador.codigoSegurancaCartao}}</h5>
+                            <h5>Bandeira: {{usuarioComprador.bandeiraCartao}}</h5>
+                        </div>
+                    </ng-container>
+
+                </div>
+
+                <a routerLink="/meus_pedidos" id="btnpagamentoMobile" class="botao-main-rodape">
+                    <input class="botao-meus-pedidos-ok-mobile" type="button" value="OK" />
+                </a>
+
+                <app-modal-simples idModal="modalAtencaoErroDetalharPedido" titulo="Atenção!"
+                    corpo="Houve um erro ao tentar detalhar este pedido. Tente novamente mais tarde!">
+                </app-modal-simples>
+
+            </div>
+        </section>
+        <div id="container-main-pagamento-desktop" class="container-main-pagamento-desktop">
+            Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+        </div>
+    </main>
+
+    <app-footer-principal></app-footer-principal>
+</body>

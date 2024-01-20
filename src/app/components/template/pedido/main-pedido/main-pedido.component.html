@@ -1,0 +1,91 @@
+<main>
+    <section id="container-main-pedido-mobile" class="container-main-pedido-mobile">
+        <div class="container-main-pedido-mobile-select-menu">
+            <div class="principal-mobile-campo-buscar">
+                <input id="principalMobileBuscar" type="search" size="25" maxlength="25" name="principal-mobile-buscar"
+                    placeholder="Buscar" class="principal-mobile-buscar"
+                    style="border: none; background-image: url('assets/img/buscar.svg'); background-color: #fff;"
+                    (keyup)="pesquisaItens();" (blur)="pesquisaItens();">
+            </div>
+
+            <div class="container-principal-mobile-itens" *ngIf="bebidasConsulta.length > 0">
+                <h3>Bebidas</h3>
+                <div class="principal-mobile-item">
+                    <div class="principal-mobile-item-card" *ngFor="let bebida of bebidasConsulta">
+                        <a (click)="navegaItem(bebida)">
+                            <div>
+                                <img src="{{bebida.imagem}}" />
+                            </div>
+                            <div class="principal-mobile-item-card-descricao">
+                                <h3>{{bebida.preco | currency : 'BRL'}}</h3>
+                                <ng-container *ngIf="bebida.produto != undefined">
+                                    <p>{{bebida.nome}} {{bebida.produto.tipoEmbalagem}}
+                                        {{bebida.produto.quantidadeMedida}}
+                                        {{bebida.produto.tipoMedida}}</p>
+                                </ng-container>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-principal-mobile-itens" *ngIf="petiscosConsulta.length > 0">
+                <h3>Petiscos</h3>
+                <div class="principal-mobile-item">
+                    <div class="principal-mobile-item-card" *ngFor="let petisco of petiscosConsulta">
+                        <a (click)="navegaItem(petisco)">
+                            <div>
+                                <img src="{{petisco.imagem}}">
+                            </div>
+                            <div class="principal-mobile-item-card-descricao">
+                                <h3>{{petisco.preco | currency : 'BRL'}}</h3>
+                                <ng-container *ngIf="petisco.produto != undefined">
+                                    <p>{{petisco.nome}} {{petisco.produto.tipoEmbalagem}}
+                                        {{petisco.produto.quantidadeMedida}}
+                                        {{petisco.produto.tipoMedida}}</p>
+                                </ng-container>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-principal-mobile-linha-horizontal" *ngIf="cozinhasConsulta.length > 0"></div>
+
+            <div class="container-principal-mobile-itens-cozinhas" *ngFor="let cozinha of cozinhasConsulta">
+                <ng-container *ngIf="cozinha.cozinha != undefined">
+                    <h3>Cozinha {{cozinha.cozinha.categoriaCozinha}}</h3>
+                    <a (click)="navegaItem(cozinha)">
+                        <div class="principal-mobile-item-cozinhas">
+                            <div class="principal-mobile-item-card-descricao-cozinhas">
+                                <h3>{{cozinha.nome}}</h3>
+                                <p>{{cozinha.descricao}}</p>
+                                <p class="principal-mobile-item-card-preco-cozinhas">
+                                    {{cozinha.preco | currency : 'BRL'}}
+                                </p>
+                            </div>
+                            <div class="principal-mobile-item-card-img-cozinhas">
+                                <img src="{{cozinha.imagem}}">
+                            </div>
+                        </div>
+                    </a>
+                </ng-container>
+            </div>
+
+            <app-modal-simples idModal="modalErroItens" titulo="Atenção!"
+                corpo="Houve um erro ao ler o endpoint de itens!">
+            </app-modal-simples>
+
+            <app-modal-simples idModal="modalErroSemItens" titulo="Atenção!"
+                corpo="Não há itens na sacola. Por favor, selecione ao menos um item para realizar uma compra!">
+            </app-modal-simples>
+
+            <a (click)="verItensSacola()" class="botao-main-rodape" id="btnSacolaMobile">
+                <input class="botao-sacola-mobile" type="button" value="VER ITENS DA SACOLA" />
+            </a>
+        </div>
+    </section>
+    <div id="container-main-pedido-desktop" class="container-main-pedido-desktop">
+        Layouts acima de 875px de largura ou 660px de altura não foram desenvolvidos :-(
+    </div>
+</main>

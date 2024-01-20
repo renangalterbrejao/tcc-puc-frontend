@@ -1,0 +1,22 @@
+<div id="{{id}}" class="modal" style="display: none !important;">
+    <div class="backdrop">
+    </div>
+    <div class="modal-content">
+        <div style="margin: 20px;">
+            <div class="cabecalho-modal">
+                <h2>{{tituloModal}}</h2>
+                <div class="modal__footer" (click)="toggleModalAlerta();">
+                    X
+                </div>
+            </div>
+            <div>
+                <p>
+                    {{corpoMensagem}}
+                </p>
+            </div>
+            <div class="area-botoes">
+                <input class="botao-entrar" type="button" value="OK" (click)="toggleModalAlerta()" />
+            </div>
+        </div>
+    </div>
+</div>
